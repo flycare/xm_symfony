@@ -1,0 +1,4 @@
+services:
+#    xm_front.example:
+#        class: Xm\FrontBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]

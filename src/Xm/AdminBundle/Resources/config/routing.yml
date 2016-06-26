@@ -1,0 +1,7 @@
+app:
+    resource: "@XmAdminBundle/Controller/"
+    type:     annotation
+
+xm_admin_user:
+    resource: "@XmAdminBundle/Resources/config/routing/user.yml"
+    prefix:   /user

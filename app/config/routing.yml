@@ -1,0 +1,15 @@
+xm_admin_user:
+    resource: "@XmAdminBundle/Controller/UserController.php"
+    type:     annotation
+
+xm_front:
+    resource: "@XmFrontBundle/Resources/config/routing.yml"
+    prefix:   /
+
+xm_admin:
+    resource: "@XmAdminBundle/Resources/config/routing.yml"
+    prefix:   /admin
+
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+    prefix: /admin

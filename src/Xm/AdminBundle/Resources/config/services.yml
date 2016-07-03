@@ -5,3 +5,7 @@ services:
     xm:
         class:     Xm\AdminBundle\Util\Xm
         arguments: ["@service_container"]
+
+    py:
+        class:     Xm\AdminBundle\Util\Py
+        arguments: ["@service_container"]

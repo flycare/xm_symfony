@@ -1,0 +1,39 @@
+{% extends "XmAdminBundle:Layout:base.html.twig" %}
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts
+    '@XmAdminBundle/Resources/public/ueditor/ueditor.config.js'
+    '@XmAdminBundle/Resources/public/ueditor/ueditor.all.js'
+    %}
+    <script src="{{ asset_url }}"></script>
+    <!-- 实例化编辑器 -->
+    <script type="text/javascript">
+        var ue = UE.getEditor('ue-container',{
+            themePath:'/bundles/xmadmin/ueditor/themes/',
+            langPath:'/bundles/xmadmin/ueditor/lang/'
+        });
+    </script>
+    {% endjavascripts %}
+
+{% endblock %}
+{% block stylesheets %}
+{% stylesheets filter='cssrewrite' output='css/*.css'
+%}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+{% endstylesheets %}
+{% endblock %}
+{% block content_header %}
+    <h1>
+        页面管理
+        <small></small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="{{ path('dashboard') }}"><i class="fa fa-dashboard"></i> 首页</a></li>
+        <li class="active">页面管理</li>
+    </ol>
+{% endblock %}
+{% block content %}
+    <script id="ue-container" name="content" type="text/plain">
+        这里写你的初始化内容
+    </script>
+{% endblock %}

@@ -29,6 +29,13 @@ class Navigation
     /**
      * @var integer
      *
+     * @ORM\Column(name="weight", type="integer", length=4, nullable=true)
+     */
+    private $weight;
+
+    /**
+     * @var integer
+     *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -85,6 +92,29 @@ class Navigation
         return $this->title;
     }
 
+    /**
+     * Set weight
+     *
+     * @param string $title
+     *
+     * @return Navigation
+     */
+    public function setWeight($weight)
+    {
+        $this->weight = $weight;
+
+        return $this;
+    }
+
+    /**
+     * Get weight
+     *
+     * @return string
+     */
+    public function getWeight()
+    {
+        return $this->weight;
+    }
     /**
      * Get id
      *

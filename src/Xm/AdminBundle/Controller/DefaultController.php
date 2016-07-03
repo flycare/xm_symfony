@@ -15,12 +15,16 @@ class DefaultController extends BaseController
      */
     public function indexAction()
     {
+        return $this->render('XmAdminBundle:Default:index.html.twig');
+    }
+
+    public function layoutAction(){
         $user = $this->getUser();
         $userName = '';
         if($user){
             $userName = $user->getUsernameCanonical();
         }
-        return $this->render('XmAdminBundle:Default:index.html.twig',
+        return $this->render('XmAdminBundle:Default:username.html.twig',
             array(
                 'username'=>$userName
             )

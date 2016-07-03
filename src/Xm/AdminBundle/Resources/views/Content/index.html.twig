@@ -2,19 +2,9 @@
 {% block javascripts %}
     {{ parent() }}
     {% javascripts
-    '@XmAdminBundle/Resources/public/ueditor/ueditor.config.js'
-    '@XmAdminBundle/Resources/public/ueditor/ueditor.all.js'
     %}
     <script src="{{ asset_url }}"></script>
-    <!-- 实例化编辑器 -->
-    <script type="text/javascript">
-        var ue = UE.getEditor('ue-container',{
-            themePath:'/bundles/xmadmin/ueditor/themes/',
-            langPath:'/bundles/xmadmin/ueditor/lang/'
-        });
-    </script>
     {% endjavascripts %}
-
 {% endblock %}
 {% block stylesheets %}
 {% stylesheets filter='cssrewrite' output='css/*.css'
@@ -33,7 +23,12 @@
     </ol>
 {% endblock %}
 {% block content %}
-    <script id="ue-container" name="content" type="text/plain">
-        这里写你的初始化内容
-    </script>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <div class="row show-grid">
+        <div class="col-md-12">
+            <center><button type="submit" class="btn btn-success btn-sm">保存</button></center>
+        </div>
+    </div>
+    {{ form_end(form) }}
 {% endblock %}

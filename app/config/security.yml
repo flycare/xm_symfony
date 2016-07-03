@@ -49,3 +49,5 @@ security:
         - { path: ^/admin/category, role: ROLE_ADMIN }
         - { path: ^/admin/post, role: ROLE_ADMIN }
         - { path: ^/admin/user, role: ROLE_ADMIN }
+        - { path: ^/efconnect, role: ROLE_USER }
+        - { path: ^/elfinder, role: ROLE_USER }

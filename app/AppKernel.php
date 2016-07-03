@@ -20,6 +20,8 @@ class AppKernel extends Kernel
             new Xm\AdminBundle\XmAdminBundle(),
             new Xm\FrontBundle\XmFrontBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
+            new FM\ElfinderBundle\FMElfinderBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

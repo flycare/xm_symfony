@@ -2,26 +2,44 @@
 
 namespace Xm\AdminBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
 /**
  * Pages
+ *
+ * @ORM\Table(name="pages")
+ * @ORM\Entity
  */
 class Pages
 {
     /**
      * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="flag", type="string", length=45, nullable=true)
      */
     private $flag;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="content", type="text", nullable=true)
      */
     private $content;
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="last_modify", type="datetime", nullable=true)
+     */
+    private $lastModify;
 
     /**
      * Get id
@@ -80,5 +98,28 @@ class Pages
     {
         return $this->content;
     }
-}
 
+    /**
+     * Set lastModify
+     *
+     * @param Datetime $lastModify
+     *
+     * @return Pages
+     */
+    public function setLastModify($lastModify)
+    {
+        $this->lastModify = $lastModify;
+
+        return $this;
+    }
+
+    /**
+     * Get lastModify
+     *
+     * @return Datetime
+     */
+    public function getLastModify()
+    {
+        return $this->lastModify;
+    }
+}

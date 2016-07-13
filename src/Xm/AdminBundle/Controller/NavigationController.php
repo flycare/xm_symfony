@@ -7,6 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Xm\AdminBundle\Entity\Navigation;
 use Symfony\Component\HttpFoundation\Response;
 use Overtrue\Pinyin\Pinyin;
+use Xm\AdminBundle\Entity\Pages;
 
 /**
  * Class NavigationController
@@ -39,6 +40,11 @@ class NavigationController extends BaseController
         $flag = $pinyin->permalink($data['title']);
         $navigation->setFlag($flag);
         $em->persist($navigation);
+        $page = new Pages();
+        $page->setFlag($flag);
+        $now = new \DateTime('now');
+        $page->setLastModify($now);
+        $em->persist($page);
         $em->flush();
         $response = new Response(json_encode(array('result' => true)));
         $response->headers->set('Content-Type', 'application/json');
@@ -73,7 +79,11 @@ class NavigationController extends BaseController
         $em = $this->getDoctrine()->getEntityManager();
         $repository = $this->getDoctrine()->getRepository('XmAdminBundle:Navigation');
         $navigation = $repository->find($data['id']);
+        $flag = $navigation->getFlag();
         $em->remove($navigation);
+        $repository = $this->getDoctrine()->getRepository('XmAdminBundle:Pages');
+        $page = $repository->findOneByFlag($flag);
+        $em->remove($page);
         $em->flush();
         $response = new Response(json_encode(array('result' => true)));
         $response->headers->set('Content-Type', 'application/json');

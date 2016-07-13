@@ -15,25 +15,69 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 class ContentController extends Controller
 {
     /**
-     * @Route("/manage", name="page_content_manage")
+     * @Route("/list",name="page_content_list")
      */
-    public function manageAction(){
+    public function listAction(){
+        $repository = $this->getDoctrine()->getRepository('XmAdminBundle:Navigation');
+        $navigations = $repository->findAll();
+        return $this->render('XmAdminBundle:Content:list.html.twig',array(
+            'navigations'=>$navigations
+        ));
+    }
+    /**
+     * @Route("/manage/{flag}", name="page_content_manage")
+     */
+    public function manageAction($flag){
+        $repository = $this->getDoctrine()->getRepository('XmAdminBundle:Pages');
+        $obj = $repository->findOneByFlag($flag);
         $page = new Pages();
         $builder = $this->createFormBuilder($page)
+            ->setAction($this->generateUrl('ajax_save_content'))
             ->add('content', CKEditorType::class, array(
                 'config' => array(
-                    'filebrowserBrowseRoute' => 'elfinder',
-                    'filebrowserBrowseRouteParameters' => array(
-                        'instance' => 'default',
-                        'homeFolder' => ''
-                    )
+                    'allowedContent'=> true,
+                    'toolbar'=>'full',
+                    'value'=>$obj->getContent()
                 ),
-                'label'=>' '
+                'plugins' => array(
+                    'backgrounds' => array(
+                        'path'     => '/bundles/xmadmin/ckeditor/plugins/backgrounds',
+                        'filename' => 'plugin.js',
+                    ),
+                ),
+                'label'=>' ',
+                'data'=>$obj->getContent()
             ))
             ->getForm();
 
-        return $this->render('XmAdminBundle::Content/index.html.twig',array(
+        return $this->render('XmAdminBundle:Content:index.html.twig',array(
             'form' => $builder->createView(),
+            'obj'=>$obj
+        ));
+    }
+
+    /**
+     * @Route("/saveContent", name="ajax_save_content")
+     */
+    public function ajaxSaveContentAction(){
+        $data = $this->get("request")->request->all();
+        $content = $data['form']['content'];
+        $flag = $data['flag'];
+        $repository = $this->getDoctrine()->getRepository('XmAdminBundle:Pages');
+        $em = $this->getDoctrine()->getEntityManager();
+        $page = $repository->findOneByFlag($flag);
+        $page->setContent($content);
+        $page->setLastModify(new \DateTime('now'));
+        $em->persist($page);
+        $em->flush();
+        return $this->redirectToRoute('page_content_list');
+    }
+
+    public function lastModifyAction($flag){
+        $repository = $this->getDoctrine()->getRepository('XmAdminBundle:Pages');
+        $page = $repository->findOneByFlag($flag);
+        return $this->render('XmAdminBundle:Content:last_modify.html.twig',array(
+            'lastModify'=>$page->getLastModify()
         ));
     }
 }

@@ -1,3 +1,7 @@
+app:
+    resource: "@XmFrontBundle/Controller/"
+    type:     annotation
+
 xm_front_homepage:
     path:     /
     defaults: { _controller: XmFrontBundle:Default:index }

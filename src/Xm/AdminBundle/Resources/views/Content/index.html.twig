@@ -1,16 +1,16 @@
 {% extends "XmAdminBundle:Layout:base.html.twig" %}
 {% block javascripts %}
     {{ parent() }}
-    {% javascripts
-    %}
-    <script src="{{ asset_url }}"></script>
-    {% endjavascripts %}
+    <script>
+        window.onload = function () {
+//            CKEDITOR.replace( 'editor1', {
+//                toolbar: 'Basic',
+//                uiColor: '#9AB8F3'
+//            });
+        }
+    </script>
 {% endblock %}
 {% block stylesheets %}
-{% stylesheets filter='cssrewrite' output='css/*.css'
-%}
-    <link rel="stylesheet" href="{{ asset_url }}" />
-{% endstylesheets %}
 {% endblock %}
 {% block content_header %}
     <h1>
@@ -24,7 +24,11 @@
 {% endblock %}
 {% block content %}
     {{ form_start(form) }}
+    {#<textarea id="editor1">#}
+        {#{{ obj.content|raw }}#}
+    {#</textarea>​#}
     {{ form_widget(form) }}
+    <input type="hidden" name="flag" value="{{ obj.flag }}"/>
     <div class="row show-grid">
         <div class="col-md-12">
             <center><button type="submit" class="btn btn-success btn-sm">保存</button></center>

@@ -1,0 +1,41 @@
+.czsbannar{
+	background-image:url("../img/yyb/bannar.jpg");
+	background-position:center;
+	height:578px;
+	width:100%;
+}
+.center{
+	position:relative;
+	background-color:#5f8013;
+	width:100%;
+}
+.centercon{
+	margin:auto;
+	text-align: center;
+	width:1061px;
+	overflow: hidden;	
+}
+.block1 {
+  display:block;
+  width: 100%;
+  height:75px;
+  line-height:75px;
+  background:url(../img/yyb/bg.jpg) no-repeat repeat-y;
+  clear:both;
+}
+.tb1{
+	margin:auto;
+	text-align: center;
+	width:1070px;
+	height:75px;
+	overflow: hidden;
+	background:url(../img/yyb/bg.jpg) no-repeat repeat-y;
+}
+.jxxt{
+	background-image:url(../img/jxtx/jxxttop.png);
+	background-position:center top;
+	background-repeat: no-repeat;
+	padding-top:217px;
+	padding-left:18px;
+	width:100%;
+}

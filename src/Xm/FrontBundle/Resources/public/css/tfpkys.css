@@ -1,0 +1,22 @@
+.czsbannar{
+	position:absolute;
+	background-image:url(../img/pk/pkbannar.png);
+	background-position:center;
+	height:575px;
+	width:100%;
+	z-index:-1;
+	left:0px;
+	top:234px;
+}
+.center{
+	position:relative;
+	background-color:#FFFFFF;
+	width:100%;
+	margin-top:724px;
+}
+.centercon{
+	margin:auto;
+	text-align: center;
+	width:1300px;
+	overflow: hidden;	
+}

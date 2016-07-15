@@ -1,0 +1,120 @@
+<!-- WPA Button Begin -->
+<script type="text/javascript">
+//    BizQQWPA.addCustom({aty: '2', a: '2', nameAccount: 800101986, selector: 'BizQQWPA'});
+</script>
+<script type="text/javascript" >
+    var chatService,imgUrl,phoneUrl;
+    function talk99Init(conf){
+        chatService=conf.env.chat;
+        phoneUrl = chatService +'/call' ;
+    }
+
+    var jsonRequest = (function(){
+        var calling = false;
+        return function(url) {
+            if(calling){
+                return;
+            }
+            calling = true;
+
+            var existEle = document.getElementById(url);
+            if( existEle){
+                document.body.removeChild(existEle);
+            }
+            var u = url + '&x=' + (+new Date()),
+                    h = document.getElementsByTagName('head')[0],
+                    s = document.createElement('script');
+            s.setAttribute('type','text/javascript');
+            s.setAttribute('src',url);
+
+            s.onreadystatechange=s.onload=function(){
+                calling = false;
+            };
+
+            document.body.appendChild(s);
+        };
+
+    })();
+
+    var phoneCallback = function(resp){
+        if(resp.error){
+            switch(resp.error){
+                case 'needLicence': alert("免费电话授权已消费完，需充值后才能呼叫"); break;
+                case 'invalidNumber': alert("错误的访客或者客服电话号码"); break;
+                case 'phoneBlocked': alert("该访客电话或者Ip呼叫太多，已被屏蔽"); break;
+                case 'freqCall': alert("该访客电话呼叫太频繁，短时间不可再呼叫"); break;
+                case 'unknownError':alert("其他错误（如电话关机，繁忙）");break;
+            }
+
+        }else{
+            alert("连接中，请稍等……")
+        }
+    };
+
+    var phoneCall = function(n){
+        var companyId = '20000577';//公司id
+        var tarUser = 'xiaomajiaoyu';//客服id
+        var cb = "phoneCallback";
+        var param = "c=" + companyId + "&n=" + tarUser + "&cb=" + cb + "&phone=" + n;
+        if(!n.match(/^(((1[0-9][0-9]{1}))+\d{8})$/)){
+            alert("您输入的号码错误，请确认输入是否正确!");
+            return false;
+        }
+        jsonRequest(phoneUrl + "?" + param);
+    }
+
+    $(window).scroll(function() {
+
+        if ($(this).scrollTop() > 150) {
+
+            $('.back-to-top').fadeIn(100);
+
+        } else {
+
+            $('.back-to-top').fadeOut(100);
+
+        }
+
+    });
+
+    $('.back-to-top').click(function(event) {
+
+        event.preventDefault();
+
+        $('html, body').animate({scrollTop: 0}, 500);
+
+    });
+    /* 二维码 */
+
+    $('#xm_code').hover(function(){
+
+        $(this).attr('id','xm_code_hover');
+
+        $('#xm_code_img').show();
+
+    },function(){
+
+        $(this).attr('id','xm_code');
+
+        $('#xm_code_img').hide();
+
+    });
+    $(document).ready(function(){
+        $("img").lazyload({effect:"fadeIn"});
+    })
+    $(function() {
+        $("img").lazyload({effect:"fadeIn"});
+    });
+    $(function(){
+        var $div_li =$(".connleft a");
+        $div_li.hover(function(){
+            //$(this).addClass("on").siblings().removeClass("on");
+            var index =  $div_li.index(this);
+            var img = $(".connright > ul > li").eq(index).children("img")[0];
+            $(img).attr("src",$(img).attr("data-original"));
+            $(".connright > ul > li").eq(index).show().siblings().hide();
+        })
+    })
+
+</script>
+<script type="text/javascript" charset="utf-8" src="http://lead.soperson.com/20000577/10049104.js"></script>

@@ -1,0 +1,66 @@
+.czsbannar{
+	position:absolute;
+	background-image:url(../img/gamtpkgre/gmatbannar.jpg);
+	background-position:center;
+	height:575px;
+	width:100%;
+	z-index:-1;
+	left:0px;
+	top:234px;
+}
+.center{
+	position:relative;
+	background-color:#FFFFFF;
+	width:100%;
+	margin-top:570px;
+	padding:0px;
+	margin-bottom:30px;
+}
+.centercon{
+	margin:auto;
+	text-align: center;
+	width:1300px;
+	overflow: hidden;	
+}
+.gamt1{
+	background-image:url(../img/gamtpkgre/1.png);
+	background-position:center top;
+	margin-top:-40px;
+	height:799px;
+	width:100%;
+}
+.gamt2{
+	background-image:url(../img/gamtpkgre/2.png);
+	background-position:center top;
+	margin-top:-40px;
+	height:891px;
+	width:100%;
+	background-repeat:no-repeat;
+}
+.gamt2 .gblock{
+	border: solid 6px #1ea451;
+	width:1055px;
+	height:590px;
+	position: relative;
+	left:103px;
+	top: 303px;
+	border-top: none;
+}
+.gamt3{
+	z-index:1;
+	position: relative;
+	background-image:url(../img/gamtpkgre/3.png);
+	background-position:center top;
+	margin-top:-40px;
+	height:577px;
+	width:100%;
+}
+.notice{margin:0 auto;width:940px;height:577px;margin-top: 20px;}
+.tab_1 ul{width:940px;height:160px;}
+.tab_1 li{width:145px;height:160px; text-align:center;padding-top:46px;float:left;color:#302f2b;
+text-align:center; cursor:pointer;font-size:25px;font-weight:bold;color:#ffffff; background-position:-182px -8px;
+line-height:30px;background-image: url(../img/gamtpkgre/but.png);
+}
+.tab_1 .on{ background-position:0px -8px;height:146px;padding-top:40px;font-size:38px;
+color:#451271;background-image: url(../img/gamtpkgre/but.png);line-height: 40px;}
+.tab_2{width:934px;height:425px;margin-top:10px;}

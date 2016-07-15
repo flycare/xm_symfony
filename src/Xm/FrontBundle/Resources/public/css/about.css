@@ -1,0 +1,104 @@
+.czsbannar{
+	background-image:url(../img/about/bannar.jpg);
+	background-position:center;
+	height:582px;
+	width:100%;
+	position: relative;
+	z-index: -10;
+}
+.center{
+	background-color:#5f8014;
+	width:100%;
+	margin:0px;
+	min-width:1200px;
+	position: relative;
+}
+.centercon{
+	background-image: url(../img/about/conbg.jpg);
+	background-position:bottom;
+	background-repeat: no-repeat;
+	margin:auto;
+	text-align: center;
+	width:1050px;
+	height:1387px;
+	overflow: hidden;
+	position: relative;
+	top:-220px;
+	margin-bottom:-220px;
+
+}
+.connleft{
+	background-image: url(../img/about/leftnav.png);
+	left:0px;
+	top:0px;
+	width:280px;
+	height:903px;
+	overflow: hidden;
+	position: relative;
+	top:-20px;
+	padding-top:334px;
+}
+.connleft a{
+	display: block;
+	width:226px;
+	height:88px;
+	border:solid 0px #000000;
+	margin: 24px 43px;
+	font: "微软雅黑";
+}
+.connright{
+	position:relative;
+	left:300px;
+	top: -500px;
+	width:800px;
+	overflow:hidden;
+	font-size:17px;
+	text-align: left;
+}
+.connright ul{
+
+}
+.connright ul li{
+	width:591px;
+	padding:20px 10px;
+	display: none;
+}
+.connright ul li p{
+	
+	line-height:25px;
+	text-indent:2em;
+}
+.connright ul li .content{
+	padding:20px 10px;
+	width:592px;
+	background-color: #FFFFFF;
+	overflow: hidden;
+}
+.huodong{
+	background-image: url(../img/about/huodong.png);
+	width:766px;
+	height:986px;
+	margin-top:20px;
+	display: block;
+	padding-left:20px;
+	padding-top: 30px;
+}
+.huodong dd{
+	height:282px ;
+	width:689px;
+	margin-left:20px;
+	margin-top:37px;
+	border:solid 0px blue;
+	padding-left:20px;
+}
+.huodong dd a{
+	display: block;
+	width:182px;
+	height:214px;
+	border:solid 0px red;
+	margin-top:33px;
+	margin-left:28px;
+	float: left;
+}
+
+

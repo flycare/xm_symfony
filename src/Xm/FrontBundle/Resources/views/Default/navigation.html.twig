@@ -1,0 +1,17 @@
+<div class="nav">
+    <ul>
+        {% for obj in navigations %}
+        <li>
+            {% if obj.flag == 'home' %}
+                <a href="{{ path('homepage') }}" target="_blank">首页</a>
+            {% else %}
+                <a href="{{ path('webpage',{'slug':obj.flag}) }}" target="_blank">{{ obj.title }}</a>
+            {% endif %}
+        </li>
+            {% if loop.last %}
+            {% else %}
+                <li class="border"></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>

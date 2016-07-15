@@ -1,0 +1,45 @@
+.czsbannar{
+	background-color:#75a63b;
+	width:100%;
+	margin:0px;
+	padding:0px;
+}
+.czsbannarcon{
+	background-image:url(../img/yasi/ysbannar.jpg);
+	background-position: center;
+	height:673px;
+	width:100%;
+}
+.gzstf{
+	background-image:url(../img/yasi/ysjs.png);
+	background-position: center top;
+	background-repeat: no-repeat;
+	height:532px;
+	width:100%;
+	margin-top:100px;
+}
+.gzssatact{
+	background-image:url(../img/yasi/ysksnx.png);
+	background-position: center top;
+	background-repeat: no-repeat;
+	height:1008px;
+	width:100%;
+	margin-top:70px;
+}
+.gzssatact2{
+	background-image:url(../img/yasi/yssyfw.png);
+	background-position: center top;
+	background-repeat: no-repeat;
+	height:1210px;
+	width:100%;
+	margin-top:70px;
+}
+.gzsap{
+	background-image:url(../img/yasi/yskcsz.png);
+	background-position: center top;
+	background-repeat: no-repeat;
+	height:1167px;
+	width:100%;
+	margin-top:70px;
+}
+

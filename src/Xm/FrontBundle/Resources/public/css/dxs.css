@@ -1,0 +1,55 @@
+.czsbannar{
+	position:absolute;
+	background-image:url(../img/kctx/dxsbannarbg.jpg);
+	background-position:center;
+	height:744px;
+	width:100%;
+	z-index:-1;
+	left:0px;
+	top:234px;
+}
+.center{
+	position:relative;
+	background-color:#3b7e04;
+	background-position: center top;
+	background-repeat: no-repeat;
+	width:100%;
+	margin-top:724px;
+}
+.dxstfbg{
+	background-image: url(../img/kctx/dxstfbg.png);
+	background-position:center top;
+	background-repeat:no-repeat;
+	height:800px;
+	width:1269px;
+	text-align:center;
+	margin:auto;
+	padding-top:313px;
+	padding-left:155px;
+	margin-top:150px;
+
+}
+.dxstftop{
+	position:relative;
+	left:-128px;
+	top:-370px;
+}
+.conn{
+	height:450px;
+	width:958px;
+	background:#FFFFFF;
+	padding:15px 15px;
+	margin-top:-230px;
+}
+.conn p{
+	font-size:16px;
+	font-weight: bold;
+	line-height:24px;
+	text-align: left;
+}
+.title{
+	font-size:27px;
+	color:#273900;
+	height:50px;
+	line-height:50px;
+}

@@ -1,0 +1,25 @@
+.czsbannar{
+	background-image:url(../img/jxtx/jxtxbannar.png);
+	background-position:center;
+	height:751px;
+	width:100%;
+}
+.center{
+	position:relative;
+	background-color:#5f8013;
+	width:100%;
+}
+.centercon{
+	margin:auto;
+	text-align: center;
+	width:1300px;
+	overflow: hidden;	
+}
+.jxxt{
+	background-image:url(../img/jxtx/jxxttop.png);
+	background-position:center top;
+	background-repeat: no-repeat;
+	padding-top:217px;
+	padding-left:18px;
+	width:100%;
+}

@@ -17,8 +17,10 @@ class DefaultController extends Controller
         $repository = $this->getDoctrine()->getRepository('XmAdminBundle:Pages');
         $page = $repository->findOneByFlag('home');
         $content = $page->getContent();
+        $title = '';
         return $this->render('XmFrontBundle:Default:index.html.twig',array(
-            'content'=>$content
+            'content'=>$content,
+            'title'=>$title
         ));
     }
 
@@ -28,9 +30,11 @@ class DefaultController extends Controller
     public function pageAction($slug){
         $repository = $this->getDoctrine()->getRepository('XmAdminBundle:Pages');
         $page = $repository->findOneByFlag($slug);
-        $content = $page->getContent();
-        $this->render('XmFrontBundle:Default:page.html.twig',array(
-            'content'=>$content
+        $repository = $this->getDoctrine()->getRepository('XmAdminBundle:Navigation');
+        $navigation = $repository->findOneByFlag($slug);
+        return $this->render('XmFrontBundle:Default:index.html.twig',array(
+            'content'=>$page->getContent(),
+            'title'=>$navigation->getTitle().' - '
         ));
     }
 
@@ -40,5 +44,12 @@ class DefaultController extends Controller
         return $this->render('XmFrontBundle:Default:navigation.html.twig',array(
             'navigations'=>$navigations
         ));
+    }
+
+    /**
+     * @Route("/activity/{id}", name="activity")
+     */
+    public function activityAction($id){
+
     }
 }

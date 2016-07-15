@@ -1,0 +1,33 @@
+.czsbannar{
+	background-image:url(../img/zxhd/zxhdbannar.jpg);
+	background-position:center;
+	height:580px;
+	width:100%;
+}
+.center{
+	position:relative;
+	background-color:#5f8013;
+	width:100%;
+}
+.centercon{
+	margin:auto;
+	text-align: center;
+	width:992px;
+	overflow: hidden;	
+}
+.tb1{
+	margin:auto;
+	text-align: center;
+	width:1070px;
+	height:490px;
+	overflow: hidden;
+	background:url(../img/zxhd/tb1.jpg) no-repeat;
+}
+.jxxt{
+	background-image:url(../img/jxtx/jxxttop.png);
+	background-position:center top;
+	background-repeat: no-repeat;
+	padding-top:217px;
+	padding-left:18px;
+	width:100%;
+}

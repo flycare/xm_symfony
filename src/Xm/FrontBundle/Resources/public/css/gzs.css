@@ -1,0 +1,48 @@
+.czsbannar{
+	background-color:#3b7e04;
+	width:100%;
+	margin:0px;
+	padding:0px;
+}
+.czsbannarcon{
+	background-image:url(../img/kctx/gzsbannar.png);
+	background-position: center;
+	height:508px;
+	width:100%;
+}
+.gzstf{
+	background-image:url(../img/kctx/gzstf.png);
+	background-position: center top;
+	background-repeat: no-repeat;
+	height:873px;
+	width:100%;
+}
+.gzssatact{
+	background-image:url(../img/kctx/gzssatact.png);
+	background-position: center top;
+	background-repeat: no-repeat;
+	height:763px;
+	width:100%;
+}
+.gzssatact2{
+	background-image:url(../img/kctx/gzssatact2.png);
+	background-position: center top;
+	background-repeat: no-repeat;
+	height:763px;
+	width:100%;
+}
+.gzsap{
+	background-image:url(../img/kctx/gzsap.png);
+	background-position: center top;
+	background-repeat: no-repeat;
+	height:1167px;
+	width:100%;
+}
+.gzsxmkcsz{
+	background-image:url(../img/kctx/gzsxmkcsz.png);
+	background-position: center top;
+	background-repeat: no-repeat;
+	height:1167px;
+	width:100%;
+}
+

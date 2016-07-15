@@ -1,0 +1,77 @@
+{% extends "XmAdminBundle:Layout:base.html.twig" %}
+{% block javascripts %}
+    {% javascripts
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    <script>
+
+    </script>
+{% endblock %}
+{% block content_header %}
+    <h1>
+        导航管理
+        <small></small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="{{ path('dashboard') }}"><i class="fa fa-dashboard"></i> 首页</a></li>
+        <li class="active">页面管理</li>
+    </ol>
+{% endblock %}
+{% block content %}
+    <!-- Main content -->
+    <section class="content">
+        <div class="callout callout-info">
+            <small>点击编辑按钮修改对应页面内容</small>
+        </div>
+        <!-- Default box -->
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">前台菜单列表</h3>
+            </div>
+            <div class="box-body">
+                <div class="col-md-12">
+                    <div class="col-md-4"><strong>页面</strong></div>
+                    <div class="col-md-4"><strong>最后修改时间</strong></div>
+                    <div class="col-md-4"><strong>编辑</strong></div>
+                </div>
+                {% for obj in navigations %}
+                    <div class="col-md-12" data-id="{{ obj.id }}">
+                        <div class="col-md-4">
+                            <span class="menu_title">{{ obj.title }}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <span>{{ render(controller('XmAdminBundle:Content:lastModify',{'flag':obj.flag})) }}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="{{ path('page_content_manage',{'flag':obj.flag}) }}" class="btn btn-success btn-xs edit-menu">编辑</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+                <div id="create_menu" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title">创建导航菜单</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div><input type="text" class="form-control menu_title" placeholder="标题"/></div>
+                                <div><input type="text" class="form-control menu_weight" placeholder="排序"/></div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary save_new_menu">保存</button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+            </div>
+            <!-- /.box-footer-->
+        </div>
+        <!-- /.box -->
+    </section>
+    <!-- /.content -->
+{% endblock %}

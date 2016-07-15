@@ -1,0 +1,119 @@
+.czsbannar{
+	background-color:#b7cc00;
+	height:400px;
+	width:100%;
+}
+.czsbannardown{
+	background-image:url(../img/czsbannardown.jpg);
+	background-position: center;
+	height:301px;
+	width:100%;
+}
+.bmksfont{
+	background-image:url(../img/bmksfont.png);
+	background-position: center;
+	height:232px;
+	width:1021px;
+	margin: auto;
+	text-align:center;
+	margin-top:100px;
+}
+.btyxkcfont{
+	background-image:url(../img/ptyxxxkcfont.png);
+	background-position: center;
+	height:158px;
+	width:1166px;
+	margin: auto;
+	text-align:center;
+}
+.bkkc1{
+	background-image:url(../img/bkkc1.png);
+	background-position:center;
+	height:204px;
+	width:1178px;
+	margin: auto;
+	text-align:center;
+}
+.slep{
+	background-image:url(../img/slep.png);
+	background-position:center;
+	height:84px;
+	width:579px;
+	margin: auto;
+	text-align:center;
+	margin-top:-40px;
+}
+.slepzs{
+	background-image:url(../img/slepzs.png);
+	background-position:center;
+	height:648px;
+	width:1083px;
+	margin: auto;
+	text-align:center;
+	margin-top:20px;
+}
+.tfzs{
+	background-image:url(../img/tfzs.png);
+	background-position:center;
+	height:629px;
+	width:1083px;
+	margin: auto;
+	text-align:center;
+	margin-top:20px;
+}
+.bkkc11{
+	background-image:url(../img/bkkc11.png);
+	background-position:center;
+	height:252px;
+	width:1170px;
+	margin: auto;
+	text-align:center;
+	margin-top:20px;
+}
+.tfzs2{
+	background-image:url(../img/tfzs2.png);
+	background-position:center;
+	height:670px;
+	width:1082px;
+	margin: auto;
+	text-align:center;
+	margin-top:20px;
+}
+.bkkc2{
+	background-image:url(../img/ssat.png);
+	background-position:center;
+	height:202px;
+	width:1180px;
+	margin: auto;
+	text-align:center;
+	margin-top:20px;
+}
+.ssatzs{
+	background-image:url(../img/ssatzs.png);
+	background-position:center;
+	height:679px;
+	width:1082px;
+	margin: auto;
+	text-align:center;
+	margin-top:20px;
+}
+.xmkcsz{
+	background-image:url(../img/xmkcsz.png);
+	background-position:center;
+	height:204px;
+	width:1195px;
+	margin-top:20px;
+	position: relative;
+	left:-120px;
+	top:-120px;
+}
+.xmkcszcon{
+	background-image:url(../img/xmkcszcon.png);
+	background-position:center;
+	height:834px;
+	width:980px;
+	margin: auto;
+	text-align:center;
+	margin-top:120px;
+	margin-bottom:50px;
+}

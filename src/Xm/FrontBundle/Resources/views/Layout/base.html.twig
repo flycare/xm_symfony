@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block title %}西安小马过河国际教育{% endblock %}</title>
+    <meta name="keywords" content="西安小马过河,西安小马过河国际教育" />
+    <meta name="description" content="西安小马过河国际教育,专业的出国留学考试培训,服务热线029-85568223,西安小马过河培训学校学校地址:西安市高新区科技路" />
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+    <link rel="icon" type="image/png" href="{{ asset('img/favicon.ico') }}">
+    {#<link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">#}
+    {% javascripts
+    '@XmFrontBundle/Resources/public/js/jQuery.min.js'
+    '@XmFrontBundle/Resources/public/js/index.js'
+    '@XmFrontBundle/Resources/public/js/slider.js'
+    '@XmFrontBundle/Resources/public/js/jquery.SuperSlide.2.1.1.js'
+    '@XmFrontBundle/Resources/public/js/fp.js'
+    '@XmFrontBundle/Resources/public/js/jquery.lazyload.min.js'
+    '@XmFrontBundle/Resources/public/js/touchTouch.jquery.js'
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    {% stylesheets filter='cssrewrite' output='css/*.css'
+    'bundles/xmfront/css/bootstrap.min.css'
+    'bundles/xmfront/css/header.css'
+    'bundles/xmfront/css/index.css'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+    {% block javascripts %}
+    {% endblock %}
+    {% block sheetstyles %}
+    {% endblock %}
+</head>
+<body>
+
+<!-- weixin begin-->
+<style type="text/css">
+    .logo{
+        width:100%;
+        height:188px;
+        margin:0 auto;
+    }
+    .logo img{
+        width:100%;
+        height:100%;
+    }
+</style>
+<div class="container-fluid header">
+    <div class="logo" alt="西安小马过河国际教育公司的logo">
+        <!--<img src="http://www.xiaomajiaoyu.net/bt.jpg" alt="西安小马过河国际教育公司的logo">-->
+    </div>
+</div>
+<div class="container-fluid navblock">
+    {{ render(controller('XmFrontBundle:Default:Navigation')) }}
+</div>
+{% block content %}
+{% endblock %}
+
+{{ include('XmFrontBundle:Layout:buttom.html.twig') }}
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        if($('#slider').size()>1){
+            slider.init();
+        }
+    })
+    $(function(){
+        jQuery(".slideBox").slide({mainCell:".bd ul",autoPlay:true});
+    });
+    $(".button").hover(function(){
+        $(this).animate({
+            width:"163",height:"66"
+        },500);
+
+    },function(){
+
+        $(this).animate({
+            width:"161",height:"64"
+        },500);
+    });
+</script>
+{{ include('XmFrontBundle:Layout:footer.html.twig') }}
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        bp.src = '//push.zhanzhang.baidu.com/push.js';
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+</body>
+</html>

@@ -462,6 +462,9 @@
     top:-20px;
     padding-top:334px;
 }
+.imglist li a{
+    text-indent: -9999px;
+}
 .connleft a{
     display: block;
     width:226px;

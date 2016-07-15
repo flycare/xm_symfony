@@ -37,7 +37,11 @@ class ContentController extends Controller
                 'config' => array(
                     'allowedContent'=> true,
                     'toolbar'=>'full',
-                    'value'=>$obj->getContent()
+                    'value'=>$obj->getContent(),
+                    'contentsCss'=>array(
+                        '/bundles/xmfront/css/index.css',
+                        '/bundles/xmfront/css/header.css'
+                    )
                 ),
                 'plugins' => array(
                     'backgrounds' => array(

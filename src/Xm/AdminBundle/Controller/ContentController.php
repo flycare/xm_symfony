@@ -33,7 +33,7 @@ class ContentController extends Controller
         $page = new Pages();
         $builder = $this->createFormBuilder($page)
             ->setAction($this->generateUrl('ajax_save_content'))
-            ->add('content', CKEditorType::class, array(
+            ->add('content', 'Ivory\CKEditorBundle\Form\Type\CKEditorType', array(
                 'config' => array(
                     'allowedContent'=> true,
                     'toolbar'=>'full',

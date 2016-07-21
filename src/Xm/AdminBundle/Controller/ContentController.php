@@ -41,7 +41,8 @@ class ContentController extends Controller
                     'contentsCss'=>array(
                         '/bundles/xmfront/css/index.css',
                         '/bundles/xmfront/css/header.css'
-                    )
+                    ),
+                    'height'=>'800px'
                 ),
                 'plugins' => array(
                     'backgrounds' => array(

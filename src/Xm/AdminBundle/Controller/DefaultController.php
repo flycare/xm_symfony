@@ -35,6 +35,7 @@ class DefaultController extends BaseController
      * @Template("XmAdminBundle:Default:login.html.twig")
      */
     public function loginAction(){
+
         $return = ['box'=>'login'];
         $request = $this->getRequest();
         $return['oauth_id'] = $request->get('oauth_id') ?: $this->get('session')->get('oauth_id');

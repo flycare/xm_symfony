@@ -25,7 +25,3 @@ monolog:
             level: debug
         console:
             type:  console
-
-web_profiler:
-    toolbar: false
-    intercept_redirects: false

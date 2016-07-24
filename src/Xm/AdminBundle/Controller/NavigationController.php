@@ -21,9 +21,11 @@ class NavigationController extends BaseController
      */
     public function manageAction(){
         $repository = $this->getDoctrine()->getRepository('XmAdminBundle:Navigation');
-        $navigations = $repository->findAll();
+        $navigations = $repository->findBy(array('level'=>1),array("weight"=>"ASC"));
+        $subpages = $repository->findBy(array('level'=>2),array("weight"=>"ASC"));
         return $this->render('XmAdminBundle::Navigation/index.html.twig',array(
-            'navigations'=>$navigations
+            'navigations'=>$navigations,
+            'subpages'=>$subpages
         ));
     }
 
@@ -36,6 +38,7 @@ class NavigationController extends BaseController
         $navigation = new Navigation();
         $navigation->setTitle($data['title']);
         $navigation->setWeight($data['weight']);
+        $navigation->setLevel($data['level']);
         $pinyin = new Pinyin();
         $flag = $pinyin->permalink($data['title']);
         $navigation->setFlag($flag);

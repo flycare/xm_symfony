@@ -33,37 +33,87 @@
         <div class="box-header with-border">
             <h3 class="box-title">前台菜单列表</h3>
         </div>
-        <div class="box-body">
-            <div class="col-md-12">
-                <div class="col-md-3"><strong>菜单标题</strong></div>
-                <div class="col-md-3"><strong>排序</strong></div>
-                <div class="col-md-3"><strong>编辑</strong></div>
-                <div class="col-md-3"><strong>删除</strong></div>
-            </div>
-            {% for obj in navigations %}
-                <div class="col-md-12" data-id="{{ obj.id }}">
-                    <div class="col-md-3">
-                        <span class="menu_title">{{ obj.title }}</span>
-                        <span class="menu_input"><input type="text" class="hidden form-control menu_input" placeholder="标题"/></span>
-                    </div>
-                    <div class="col-md-3">
-                        <span class="weight_value">{{ obj.weight }}</span>
-                        <span class="weight_input"><input type="text" class="hidden form-control weight_input" placeholder="排序"/></span>
-                    </div>
-                    <div class="col-md-3">
-                        {% if obj.flag != 'home' %}
-                        <button type="button" class="btn btn-success btn-xs edit-menu">编辑</button>
-                        {% endif %}
-                        <button type="button" class="btn btn-success btn-xs hidden save-menu">保存</button>
-                    </div>
-                    <div class="col-md-3">
-                        {% if obj.flag != 'home' %}
-                            <button type="button" class="btn btn-success btn-xs delete-menu">删除</button>
-                        {% endif %}
+        <div>
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#navigation" aria-controls="home" role="tab" data-toggle="tab">导航菜单</a></li>
+                <li role="presentation"><a href="#subpage" aria-controls="profile" role="tab" data-toggle="tab">二级页面</a></li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="navigation">
+                    <div class="box-body">
+                        <div class="col-md-12">
+                            <div class="col-md-3"><strong>菜单标题</strong></div>
+                            <div class="col-md-3"><strong>排序</strong></div>
+                            <div class="col-md-3"><strong>编辑</strong></div>
+                            <div class="col-md-3"><strong>删除</strong></div>
+                        </div>
+                        {% for obj in navigations %}
+                            <div class="col-md-12" data-id="{{ obj.id }}">
+                                <div class="col-md-3">
+                                    <span class="menu_title">{{ obj.title }}</span>
+                                    <span class="menu_input"><input type="text" class="hidden form-control menu_input" placeholder="标题"/></span>
+                                </div>
+                                <div class="col-md-3">
+                                    <span class="weight_value">{{ obj.weight }}</span>
+                                    <span class="weight_input"><input type="text" class="hidden form-control weight_input" placeholder="排序"/></span>
+                                </div>
+                                <div class="col-md-3">
+                                    {% if obj.flag != 'home' %}
+                                        <button type="button" class="btn btn-success btn-xs edit-menu">编辑</button>
+                                    {% endif %}
+                                    <button type="button" class="btn btn-success btn-xs hidden save-menu">保存</button>
+                                </div>
+                                <div class="col-md-3">
+                                    {% if obj.flag != 'home' %}
+                                        <button type="button" class="btn btn-success btn-xs delete-menu">删除</button>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endfor %}
                     </div>
                 </div>
-            {% endfor %}
+                <div role="tabpanel" class="tab-pane" id="subpage">
+                    <div class="box-body">
+                        <div class="col-md-12">
+                            <div class="col-md-3"><strong>菜单标题</strong></div>
+                            <div class="col-md-2"><strong>排序</strong></div>
+                            <div class="col-md-3"><strong>链接</strong></div>
+                            <div class="col-md-2"><strong>编辑</strong></div>
+                            <div class="col-md-2"><strong>删除</strong></div>
+                        </div>
+                        {% for obj in subpages %}
+                            <div class="col-md-12" data-id="{{ obj.id }}">
+                                <div class="col-md-3">
+                                    <span class="menu_title">{{ obj.title }}</span>
+                                    <span class="menu_input"><input type="text" class="hidden form-control menu_input" placeholder="标题"/></span>
+                                </div>
+                                <div class="col-md-2">
+                                    <span class="weight_value">{{ obj.weight }}</span>
+                                    <span class="weight_input"><input type="text" class="hidden form-control weight_input" placeholder="排序"/></span>
+                                </div>
+                                <div class="col-md-3">
+                                    <span class="weight_value">/pages/{{ obj.flag }}</span>
+                                </div>
+                                <div class="col-md-2">
+                                    {% if obj.flag != 'home' %}
+                                        <button type="button" class="btn btn-success btn-xs edit-menu">编辑</button>
+                                    {% endif %}
+                                    <button type="button" class="btn btn-success btn-xs hidden save-menu">保存</button>
+                                </div>
+                                <div class="col-md-2">
+                                    {% if obj.flag != 'home' %}
+                                        <button type="button" class="btn btn-success btn-xs delete-menu">删除</button>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
         </div>
+
         <!-- /.box-body -->
         <div class="box-footer">
             <div id="create_menu" class="modal fade">

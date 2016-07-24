@@ -1,5 +1,14 @@
 $(document).ready(function(){
     $("body").on("click",".create_menu",function(){
+        var target = $("div.active").attr('id');
+        if(target == 'navigation'){
+            $('body').data('level','1');
+        }else if(target == 'subpage'){
+            $('body').data('level','2');
+        }
+        $("div#create_menu .menu_title").val('');
+        $("div#create_menu .menu_weight").val('');
+        $(".save_new_menu").removeAttr('disabled');
         $('#create_menu').modal();
     })
 
@@ -7,9 +16,11 @@ $(document).ready(function(){
         $(this).attr('disabled','disabled');
         var title = $("div#create_menu .menu_title").val();
         var weight = $("div#create_menu .menu_weight").val();
+        var level = $('body').data('level');
         var data = {
             'title':title,
-            'weight':weight
+            'weight':weight,
+            'level':level
         };
         $.ajax({
             type:'POST',

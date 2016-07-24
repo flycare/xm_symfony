@@ -42,8 +42,36 @@ class Navigation
      */
     private $id;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="level", type="integer", length=4, nullable=true)
+     */
+    private $level;
 
+    /**
+     * Set level
+     *
+     * @param int $level
+     *
+     * @return Navigation
+     */
+    public function setLevel($level)
+    {
+        $this->level = $level;
 
+        return $this;
+    }
+
+    /**
+     * Get level
+     *
+     * @return string
+     */
+    public function getLevel()
+    {
+        return $this->level;
+    }
     /**
      * Set flag
      *

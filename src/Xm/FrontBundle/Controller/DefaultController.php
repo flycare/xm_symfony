@@ -40,7 +40,7 @@ class DefaultController extends Controller
 
     public function navigationAction(){
         $repository = $this->getDoctrine()->getRepository('XmAdminBundle:Navigation');
-        $navigations = $repository->findAll(array(),array('weight'=>'ASC'));
+        $navigations = $repository->findBy(array('level'=>1),array('weight'=>'ASC'));
         return $this->render('XmFrontBundle:Default:navigation.html.twig',array(
             'navigations'=>$navigations
         ));

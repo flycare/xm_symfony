@@ -32,7 +32,7 @@ class NavigationController extends BaseController
      */
     public function ajaxCreateMenu(){
         $data = $this->get("request")->request->all();
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         $navigation = new Navigation();
         $navigation->setTitle($data['title']);
         $navigation->setWeight($data['weight']);
@@ -56,7 +56,7 @@ class NavigationController extends BaseController
      */
     public function ajaxSaveMenu(){
         $data = $this->get("request")->request->all();
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         $repository = $this->getDoctrine()->getRepository('XmAdminBundle:Navigation');
         $navigation = $repository->find($data['id']);
         $navigation->setTitle($data['title']);
@@ -76,7 +76,7 @@ class NavigationController extends BaseController
      */
     public function ajaxDeleteMenu(){
         $data = $this->get("request")->request->all();
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         $repository = $this->getDoctrine()->getRepository('XmAdminBundle:Navigation');
         $navigation = $repository->find($data['id']);
         $flag = $navigation->getFlag();

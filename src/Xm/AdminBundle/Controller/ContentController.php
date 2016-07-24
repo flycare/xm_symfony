@@ -69,7 +69,7 @@ class ContentController extends Controller
         $content = $data['form']['content'];
         $flag = $data['flag'];
         $repository = $this->getDoctrine()->getRepository('XmAdminBundle:Pages');
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         $page = $repository->findOneByFlag($flag);
         $page->setContent($content);
         $page->setLastModify(new \DateTime('now'));

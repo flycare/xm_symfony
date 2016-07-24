@@ -4,6 +4,7 @@ $(document).ready(function(){
     })
 
     $("body").on("click",".save_new_menu",function(){
+        $(this).attr('disabled','disabled');
         var title = $("div#create_menu .menu_title").val();
         var weight = $("div#create_menu .menu_weight").val();
         var data = {

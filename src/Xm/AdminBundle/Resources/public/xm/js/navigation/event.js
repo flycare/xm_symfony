@@ -45,6 +45,26 @@ $(document).ready(function(){
         return false;
     })
 
+    $("body").on("click",".edit-enable",function(){
+        var topDom = $(this).parent().parent();
+        var id = topDom.attr('data-id');
+        var enable = $(this).attr('data');
+        var data = {
+            id:id,
+            enable:enable
+        }
+        $.ajax({
+            type:'POST',
+            url:enableUrl,
+            data:data,
+            success: function(data){
+                $.showGlobalNotify("修改成功");
+                window.location.reload();
+            }
+        })
+        return false;
+    })
+
     $("body").on("click",".save-menu",function(){
         var topDom = $(this).parent().parent();
         var menuDom = topDom.find(".menu_input").find("input");

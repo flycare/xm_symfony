@@ -4,6 +4,7 @@ namespace Xm\FrontBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\BrowserKit\Response;
 use Xm\AdminBundle\Entity\Pages;
 
 class DefaultController extends Controller
@@ -40,7 +41,7 @@ class DefaultController extends Controller
 
     public function navigationAction(){
         $repository = $this->getDoctrine()->getRepository('XmAdminBundle:Navigation');
-        $navigations = $repository->findBy(array('level'=>1),array('weight'=>'ASC'));
+        $navigations = $repository->findBy(array('level'=>1,'enable'=>1),array('weight'=>'ASC'));
         return $this->render('XmFrontBundle:Default:navigation.html.twig',array(
             'navigations'=>$navigations
         ));
@@ -51,5 +52,13 @@ class DefaultController extends Controller
      */
     public function activityAction($id){
 
+    }
+
+    public function bottomAction(){
+        $repository = $this->getDoctrine()->getRepository('XmAdminBundle:Pages');
+        $page = $repository->findOneByFlag('bottom');
+        return $this->render('XmFrontBundle:Default:bottom.html.twig',array(
+            'content'=>$page->getContent()
+        ));
     }
 }

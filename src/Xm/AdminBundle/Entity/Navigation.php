@@ -48,6 +48,12 @@ class Navigation
      * @ORM\Column(name="level", type="integer", length=4, nullable=true)
      */
     private $level;
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="enable", type="integer", length=1, nullable=true)
+     */
+    private $enable;
 
     /**
      * Set level
@@ -123,7 +129,7 @@ class Navigation
     /**
      * Set weight
      *
-     * @param string $title
+     * @param int $weight
      *
      * @return Navigation
      */
@@ -142,6 +148,29 @@ class Navigation
     public function getWeight()
     {
         return $this->weight;
+    }
+    /**
+     * Set enable
+     *
+     * @param int $enalbe
+     *
+     * @return Navigation
+     */
+    public function setEnable($enalbe)
+    {
+        $this->enable = $enalbe;
+
+        return $this;
+    }
+
+    /**
+     * Get enable
+     *
+     * @return string
+     */
+    public function getEnable()
+    {
+        return $this->enable;
     }
     /**
      * Get id

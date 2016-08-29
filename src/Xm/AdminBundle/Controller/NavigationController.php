@@ -28,7 +28,23 @@ class NavigationController extends BaseController
             'subpages'=>$subpages
         ));
     }
-
+    /**
+     * @Route("/ajax/enable", name="ajax_enable_menu")
+     */
+    public function ajaxSwitchEnable(){
+        $data = $this->get("request")->request->all();
+        $id = $data['id'];
+        $enable = $data['enable'] == 1?0:1;
+        $em = $this->getDoctrine()->getManager();
+        $repository = $this->getDoctrine()->getRepository('XmAdminBundle:Navigation');
+        $navigation = $repository->find($id);
+        $navigation->setEnable($enable);
+        $em->persist($navigation);
+        $em->flush();
+        $response = new Response(json_encode(array('result' => true)));
+        $response->headers->set('Content-Type', 'application/json');
+        return $response;
+    }
     /**
      * @Route("/ajax/create", name="ajax_create_menu")
      */
@@ -62,11 +78,15 @@ class NavigationController extends BaseController
         $em = $this->getDoctrine()->getManager();
         $repository = $this->getDoctrine()->getRepository('XmAdminBundle:Navigation');
         $navigation = $repository->find($data['id']);
+        $oldFlag = $navigation->getFlag();
+        $repository = $this->getDoctrine()->getRepository('XmAdminBundle:Pages');
+        $page = $repository->findOneByFlag($oldFlag);
         $navigation->setTitle($data['title']);
         $navigation->setWeight($data['weight']);
         $pinyin = new Pinyin();
         $flag = $pinyin->permalink($data['title']);
         $navigation->setFlag($flag);
+        $page->setFlag($flag);
         $em->persist($navigation);
         $em->flush();
         $response = new Response(json_encode(array('result' => true)));

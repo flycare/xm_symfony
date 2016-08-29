@@ -9,6 +9,7 @@
         createMenuUrl = "{{ path('ajax_create_menu') }}";
         saveMenuUrl = "{{ path('ajax_save_menu') }}";
         deleteMenuUrl = "{{ path('ajax_delete_menu') }}";
+        enableUrl = "{{ path('ajax_enable_menu') }}";
     </script>
 {% endblock %}
 {% block content_header %}
@@ -46,8 +47,9 @@
                         <div class="col-md-12">
                             <div class="col-md-3"><strong>菜单标题</strong></div>
                             <div class="col-md-3"><strong>排序</strong></div>
-                            <div class="col-md-3"><strong>编辑</strong></div>
-                            <div class="col-md-3"><strong>删除</strong></div>
+                            <div class="col-md-2"><strong>编辑</strong></div>
+                            <div class="col-md-2"><strong>启用</strong></div>
+                            <div class="col-md-2"><strong>删除</strong></div>
                         </div>
                         {% for obj in navigations %}
                             <div class="col-md-12" data-id="{{ obj.id }}">
@@ -59,13 +61,22 @@
                                     <span class="weight_value">{{ obj.weight }}</span>
                                     <span class="weight_input"><input type="text" class="hidden form-control weight_input" placeholder="排序"/></span>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                     {% if obj.flag != 'home' %}
                                         <button type="button" class="btn btn-success btn-xs edit-menu">编辑</button>
                                     {% endif %}
                                     <button type="button" class="btn btn-success btn-xs hidden save-menu">保存</button>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-2">
+                                    {% if obj.flag != 'home' %}
+                                        {% if obj.enable == 1 %}
+                                            <button type="button" data="{{ obj.enable }}" class="btn btn-success btn-xs edit-enable">已启用</button>
+                                        {% else %}
+                                            <button type="button" data="{{ obj.enable }}" class="btn btn-danger btn-xs edit-enable">已禁用</button>
+                                        {% endif %}
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-2">
                                     {% if obj.flag != 'home' %}
                                         <button type="button" class="btn btn-success btn-xs delete-menu">删除</button>
                                     {% endif %}
@@ -94,7 +105,7 @@
                                     <span class="weight_input"><input type="text" class="hidden form-control weight_input" placeholder="排序"/></span>
                                 </div>
                                 <div class="col-md-3">
-                                    <span class="weight_value">/pages/{{ obj.flag }}</span>
+                                    <span class="weight_value">/page/{{ obj.flag }}</span>
                                 </div>
                                 <div class="col-md-2">
                                     {% if obj.flag != 'home' %}

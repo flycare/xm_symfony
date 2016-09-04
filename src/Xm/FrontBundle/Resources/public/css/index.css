@@ -444,10 +444,10 @@
     margin:auto;
     text-align: center;
     width:1050px;
-    height:1387px;
+    /*height:1387px;*/
     overflow: hidden;
     position: relative;
-    top:-220px;
+    /*top:-220px;*/
     margin-bottom:-220px;
 
 }
